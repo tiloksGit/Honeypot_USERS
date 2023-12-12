@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import client from "../../api";
-import avatar from "../assets/icons/avatar.png";
+import avatar from "../assets/icons/avatar.svg";
 import { Link } from "react-router-dom";
 import loadingIcon from "../assets/icons/work-in-progress.gif";
 import axios from "axios";
+import '../pages/login.css'
 
 axios.defaults.baseURL = import.meta.env.VITE_ACTUAL_SERVER_API;
 
@@ -47,39 +48,37 @@ const login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center text-xl h-screen">
-      <form className="flex-col items-center w-[35rem] bg-slate-600 opacity-80 p-4 text-lg px-6 border rounded-lg h-3/4">
-        <div className="text-center text-3xl font-medium text-black">
+    <div className="flex justify-center items-center text-xl h-screen w-screen" style={{background:"#4D50C0"}}>
+      <form className="flex-col items-center w-[30rem] h-[45rem]  opacity-80 p-4 text-lg px-6 border rounded-lg h-3/4" style={{background:"#ECF5FF"}}>
+        <div className="text-center text-2xl font-medium text-[#889DF0] mt-2 mb-2">
           Hello Again!
         </div>
-        <div className="text-center p-2">
+        <div className="text-center p-2" style={{color:"#889DF0"}}>
           Explore More by connecting with us
           {loginErr ? <p className="text-red-600">Unauthorized</p> : ""}
           <div className="flex justify-center">
-            <section
-              onClick={() => {
-                setIsAdmin(!isAdmin);
-              }}
-              className="border flex bg-fuchsia-500 cursor-pointer mt-2 "
-            >
-              <div
-                className={!isAdmin ? "w-2/4 text-fuchsia-500 bg-white" : ""}
-              >
-                user
-              </div>
-              <div className={isAdmin ? "w-2/4 text-fuchsia-500 bg-white" : ""}>
-                admin
-              </div>
-            </section>
+          <section
+  onClick={() => {
+    setIsAdmin(!isAdmin);
+  }}
+  className="toggle-section mt-5"
+>
+  <div className={`toggle-option ${!isAdmin ? 'active' : ''}`}>
+    User
+  </div>
+  <div className={`toggle-option ${isAdmin ? 'active' : ''}`}>
+    Admin
+  </div>
+</section>
           </div>
         </div>
 
         <div className="flex justify-center">
-          <div className="w-2/4 text-center">
+          <div className="w-2/5 text-center mt-2 mb-2">
             <img src={avatar} alt="" className="" />
           </div>
         </div>
-        <label htmlFor="username" className="p-2 text-lg">
+        <label htmlFor="username" className="p-2 text-lg text-[#889DF0]">
           Username
         </label>
         <input
@@ -87,10 +86,10 @@ const login = () => {
           id="username"
           value={username}
           placeholder="username or email"
-          className="w-full h-15 p-2 rounded-lg text-[#444] border mb-4 focus:outline-none"
+          className="w-full h-15 p-2 rounded-lg text-[#889DF0] border mt-3 mb-3 focus:outline-none"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password" className="p-2 text-lg">
+        <label htmlFor="password" className="p-2 text-lg text-[#889DF0]">
           Password
         </label>
         <input
@@ -98,19 +97,19 @@ const login = () => {
           id="password"
           value={password}
           placeholder="password"
-          className="w-full h-15 p-2 rounded-lg text-[#444] border mb-4 focus:outline-none"
+          className="w-full h-15 p-3 rounded-lg text-[#889DF0] border mt-3 mb-3 focus:outline-none"
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="text-center">
           <button
             type="submit"
             onClick={(e) => handleLogin(e)}
-            className="w-40 hover:bg-purple-300 p-2 m-3 border rounded-lg bg-green-600"
+            className="w-40 hover:bg-[#7282DE] p-2 m-3 border rounded-lg bg-[#4D50C0]"
             disabled={!Boolean(username && password)}
           >
             Login
           </button>
-          <div className="text-sm">
+          <div className="text-sm text-[#4D50C0]">
             Not registered?
             <span className="text-violet-400">
               <Link to="/register"> Register here</Link>

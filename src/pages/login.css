@@ -1,0 +1,25 @@
+/* CSS file or inside a style tag */
+.toggle-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid #4D50C0;
+    background-color: #4D50C0;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+  }
+  
+  .toggle-option {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .toggle-option.active {
+    background-color: #7C8EE6;
+    color: white;
+  }
+  
