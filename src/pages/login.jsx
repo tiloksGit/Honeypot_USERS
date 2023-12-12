@@ -27,7 +27,7 @@ const login = () => {
         if (response.data.success == true) {
           if (isAdmin) {
             window.location.replace(
-              `http://localhost:5173?token=${response.data.token}}&flag=${response.data.flag}`
+              `http://localhost:5173?token=${response.data.token}&flag=${response.data.flag}`
             );
             return;
           }
