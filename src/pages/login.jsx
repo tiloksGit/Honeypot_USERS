@@ -18,14 +18,12 @@ const login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log(isAdmin);
     axios
       .post(isAdmin ? cmsEndpoint : userEndpoint, {
         email: username,
         password,
       })
       .then((response) => {
-        console.log(response.data);
         if (response.data.success == true) {
           if (isAdmin) {
             window.location.replace(
@@ -41,22 +39,11 @@ const login = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
         setLoginErr(true);
       })
       .finally(() => {
         setIsLoading(false);
       });
-  };
-
-  const changeEndpoint = () => {
-    if (isAdmin) {
-      setEndpoint("/api/v1/user/cms/login");
-    } else {
-      setEndpoint("/api/v1/user/login");
-    }
-    console.log(isAdmin);
-    console.log(endpoint);
   };
 
   return (
@@ -67,7 +54,7 @@ const login = () => {
         </div>
         <div className="text-center p-2">
           Explore More by connecting with us
-          {loginErr ? <p className="text-red-600">Login Failed</p> : ""}
+          {loginErr ? <p className="text-red-600">Unauthorized</p> : ""}
           <div className="flex justify-center">
             <section
               onClick={() => {
