@@ -28,7 +28,7 @@ const login = () => {
         if (response.data.success == true) {
           if (isAdmin) {
             window.location.replace(
-              `https://honeypot-cms.netlify.app/?token=${response.data.token}&flag=${response.data.flag}&email=${username}`
+              `https://honeypot-cms2.netlify.app/?token=${response.data.token}&flag=${response.data.flag}&email=${username}`
             );
             return;
           }
@@ -53,7 +53,7 @@ const login = () => {
       style={{ background: "#4D50C0" }}
     >
       <form
-        className="flex-col items-center w-[30rem] h-[45rem]  opacity-80 p-4 text-lg px-6 border rounded-lg h-3/4"
+        className="flex-col items-center w-[30rem] h-[45rem]  opacity-80 p-4 text-lg px-6 border rounded-lg"
         style={{ background: "#ECF5FF" }}
       >
         <div className="text-center text-2xl font-medium text-[#889DF0] mt-2 mb-2">
