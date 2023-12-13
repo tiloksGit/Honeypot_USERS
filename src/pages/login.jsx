@@ -4,7 +4,7 @@ import avatar from "../assets/icons/avatar.svg";
 import { Link } from "react-router-dom";
 import loadingIcon from "../assets/icons/work-in-progress.gif";
 import axios from "axios";
-import '../pages/login.css'
+import "../pages/login.css";
 
 axios.defaults.baseURL = import.meta.env.VITE_ACTUAL_SERVER_API;
 
@@ -48,28 +48,34 @@ const login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center text-xl h-screen w-screen" style={{background:"#4D50C0"}}>
-      <form className="flex-col items-center w-[30rem] h-[45rem]  opacity-80 p-4 text-lg px-6 border rounded-lg h-3/4" style={{background:"#ECF5FF"}}>
+    <div
+      className="flex justify-center items-center text-xl h-screen w-screen"
+      style={{ background: "#4D50C0" }}
+    >
+      <form
+        className="flex-col items-center w-[30rem] h-[45rem]  opacity-80 p-4 text-lg px-6 border rounded-lg h-3/4"
+        style={{ background: "#ECF5FF" }}
+      >
         <div className="text-center text-2xl font-medium text-[#889DF0] mt-2 mb-2">
           Hello Again!
         </div>
-        <div className="text-center p-2" style={{color:"#889DF0"}}>
+        <div className="text-center p-2" style={{ color: "#889DF0" }}>
           Explore More by connecting with us
           {loginErr ? <p className="text-red-600">Unauthorized</p> : ""}
           <div className="flex justify-center">
-          <section
-  onClick={() => {
-    setIsAdmin(!isAdmin);
-  }}
-  className="toggle-section mt-5"
->
-  <div className={`toggle-option ${!isAdmin ? 'active' : ''}`}>
-    User
-  </div>
-  <div className={`toggle-option ${isAdmin ? 'active' : ''}`}>
-    Admin
-  </div>
-</section>
+            <section
+              onClick={() => {
+                setIsAdmin(!isAdmin);
+              }}
+              className="toggle-section mt-5"
+            >
+              <div className={`toggle-option ${!isAdmin ? "active" : ""}`}>
+                User
+              </div>
+              <div className={`toggle-option ${isAdmin ? "active" : ""}`}>
+                Admin
+              </div>
+            </section>
           </div>
         </div>
 
